@@ -1,0 +1,3 @@
+[submodule "workflows_engine"]
+	path = workflows_engine
+	url = git@github.com:nocturnalastro/workflows_engine.git
