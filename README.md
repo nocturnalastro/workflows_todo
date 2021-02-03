@@ -5,24 +5,22 @@ The aim of this project is to explain how workflows works to that end they will 
 
 ## TODO
 
-    [] add submodule for workflows client
     [] add submodule for workflows engine
 
 ## Install
 
 ```bash
-git clone git@gitlab.unipart.digital:mcosta/workflows_todo_app.git
+git clone git@github.com:nocturnalastro/workflows_todo.git
 
 cd workflows_todo_app
-pipenv install
-pipenv shell
+pip install -r pip-requirements.txt
 
 cd engine
 pip install -r pip-requirements.txt
 pip install .
 
-cd client
-npm install
+# cd client
+# npm install
 ```
 
 ## Running
