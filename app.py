@@ -92,7 +92,7 @@ class ToDo(Workflow):
             method="POST",
         )
 
-    def flow(self, flow_url="/todo"):
+    def flow(self, flow_url="/"):
         # Add a screen task to display the todo list.
         self.add_task(
             task_type="screen",
@@ -150,7 +150,7 @@ def get_checked_items():
 ############ Endpoints to serve the client ####################################
 
 
-@app.route("/todo/", methods=["GET"])
+@app.route("/", methods=["GET"])
 def show_list():
     return jsonify(
         ToDo(
@@ -164,7 +164,7 @@ def show_list():
     )
 
 
-@app.route("/todo/add_item", methods=["POST"])
+@app.route("/add_item", methods=["POST"])
 def add_item():
     payload = request.json
     label = payload.get("item", False)
@@ -175,7 +175,7 @@ def add_item():
     return jsonify(True)
 
 
-@app.route("/todo/mark_as_done", methods=["POST"])
+@app.route("/mark_as_done", methods=["POST"])
 def mark_as_done():
     payload = request.json
     items_ids_to_mark = payload.get("checked_items", False)
@@ -188,7 +188,7 @@ def mark_as_done():
             list_item.checked = True
 
 
-@app.route("/todo/clear_checked_items", methods=["POST"])
+@app.route("/clear_checked_items", methods=["POST"])
 def clear_checked():
     for item in get_checked_items():
         TODO_ITEMS.remove(item)
